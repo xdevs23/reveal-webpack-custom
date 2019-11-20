@@ -1,0 +1,70 @@
+doctype html
+
+include mixins/slide
+
+- const title = "My Presentation"
+
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+
+		title= title
+	
+	body(style="display: none")
+		div.reveal
+			div.slides
+				section
+					// this is empty because
+					// we don't want to show anything
+					// until everyone is ready
+					div(data-hide-me-on-print)
+
+				section(data-center)
+					span.main-title-size= title
+					div.main-title-placeholder-spacer
+					span.subtitle-subtle Foo bar baz lorem ipsum
+
+				+slide("Markdown with notes")
+					include:markdown-it slides/demo.md
+					
+					aside.notes
+						include:markdown-it slides/demo_notes.md
+
+				+slide("Markdown without notes")
+					include:markdown-it slides/demo2.md
+
+				+slide("List")
+					ul
+						li one
+						li two
+						li
+							| thee
+							| two
+							| one
+
+				+slide("Pros and Cons")
+					div.flex-row.stretch
+						div.flex-col.right-margin
+							span.fragment Pros
+							div.small-vspacer
+							ul.plus-list
+								li Meow
+								li Woof
+								ul
+									li nice
+
+						div.flex-col
+							span.fragment Cons
+							div.small-vspacer
+							ul.minus-list
+								li this
+								li that
+
+				section(data-center)
+					div(data-hide-me-on-print)
+					span.main-title-size= title
+					div.main-title-placeholder-spacer
+					span.subtitle-subtle Thank you
+
+		script(src="bundle.js")

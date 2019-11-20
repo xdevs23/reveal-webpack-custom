@@ -1,0 +1,7 @@
+include main-title
+
+mixin slide(subtitle, subsubtitle, useFragments = true)
+    section
+        +main-title(subtitle, subsubtitle)
+        div.slide-container(data-no-fragment=!useFragments)
+            block

@@ -1,0 +1,161 @@
+.subtitle-subtle
+    color: rgba(255, 255, 255, 0.4)
+    font-size: 18pt
+    body.print-pdf &
+        color: rgba(0, 0, 0, 0.4)
+
+@mixin default-font
+    font-family: 'GoogleSansRegular', 'Google Sans', 'Product Sans', 'Roboto', 'Open Sans', sans-serif
+
+html, body .reveal
+    @include default-font
+    font-size: 18pt
+
+    .progress
+        color: #0091ea
+
+    & h1, & h2, & h3, & h4, & h5, & h6
+        @include default-font
+
+
+[data-hide-me-on-print]
+    display: none
+
+body.print-pdf .reveal
+    font-size: 14pt
+
+.reveal ::selection
+    background: #0091ea
+
+.reveal .slide-number
+    border-radius: 7px
+
+.reveal pre > code.hljs
+    border-radius: 9px
+
+.main-title, .main-title-size
+    font-size: 1.6rem
+
+.main-title
+    display: flex
+    flex-direction: row
+    align-items: bottom
+    white-space: nowrap
+    flex-wrap: wrap
+    vertical-align: bottom
+
+    > .main-title-text
+        padding-right: 16px
+        box-sizing: border-box
+    
+    > .main-title-extra, .subtitle-extra
+        display: block
+        white-space: nowrap
+        mix-blend-mode: difference
+        margin-right: 16px
+        height: 100%
+    
+    > .subtitle-extra
+        height: 100%
+        &::before
+            content: '\2b9e'
+            font-family: 'Noto Sans Symbols2'
+            display: inline-block
+            font-size: 1rem
+            margin-right: 16px
+
+    &[data-hidden]
+        opacity: 0
+
+.invisible
+    opacity: 0
+
+.slide-container
+    text-align: left
+    margin: 32px 16px
+    display: flex
+    flex-direction: column
+    max-height: 100%
+    max-width: 100%
+    overflow: hidden
+    font-family: 'Roboto', 'Open Sans', 'Arial', sans-serif
+
+    body.print-pdf &
+        margin: 8px 4px
+
+.flex-col
+    display: flex
+    flex-direction: column
+    max-width: 100%
+    body.print-pdf &
+        margin: 16px
+    
+    &.right-margin
+        margin-right: 8px
+
+    &.stretch
+        > *
+            flex: 1
+    
+    &.stretch.nowrap
+        > *
+            text-overflow: ellipsis
+            white-space: nowrap
+            overflow: hidden
+            max-width: 100%
+
+.flex-row
+    display: flex
+    flex-direction: row
+    max-width: 100%
+    body.print-pdf &
+        margin: 16px
+
+    &.stretch
+        > *
+            flex: 1
+    
+    &.stretch.nowrap
+        > *
+            text-overflow: ellipsis
+            white-space: nowrap
+            overflow: hidden
+            max-width: 100%
+
+.small-text
+    font-size: 0.72em
+
+.small-vspacer
+    margin: 4px 0
+
+.text-center
+    text-align: center
+
+body .reveal ul.plus-list
+    list-style-type: none
+    padding-left: 0
+    margin-left: 0
+    > li
+        &::before
+            content: '+'
+            display: inline-block
+            margin-right: 16px
+            color: #4caf50
+
+
+body.print-pdf .reveal ul.plus-list > li::before
+            color: #388e3c
+
+body .reveal ul.minus-list
+    list-style-type: none
+    padding-left: 0
+    margin-left: 0
+    > li
+        &::before
+            content: '–'
+            display: inline-block
+            margin-right: 16px
+            color: #f44336
+
+body.print-pdf .reveal ul.minus-list > li::before
+                color: #d32f2f
