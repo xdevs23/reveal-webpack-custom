@@ -106,9 +106,8 @@ reveal.js comes with a broad range of features including [nested slides](https:/
 
 ### Folder Structure
 
-- **src/css/** All the styling except for plugins
+- **src/css/** All the styling
 - **src/** Your presentation, ES6 and anything you can `import`
-- **src/lib/** All other third party assets (JavaScript, CSS, fonts)
 - **public/** Static assets like plugins, these are not usable with `import`
 - **orig/** Original project files such as .odg, .ai, .psd, ...
 
